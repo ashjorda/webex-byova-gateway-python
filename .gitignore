@@ -259,6 +259,10 @@ docs/.jekyll-metadata
 ehthumbs.db
 Thumbs.db
 
+<<<<<<< Updated upstream
 # Local scripts
+=======
+# Local scripts and logs
+>>>>>>> Stashed changes
 restart.sh
 log.txt
