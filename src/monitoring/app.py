@@ -367,13 +367,17 @@ def get_configuration_data() -> Dict[str, Any]:
     if router_instance:
         try:
             router_info = router_instance.get_connector_info()
-            config["connectors"] = [
-                {
+            config["connectors"] = []
+            for connector_name in router_info["loaded_connectors"]:
+                # Get agents for this specific connector
+                connector_agents = [
+                    agent_id for agent_id, mapped_connector in router_info["agent_mappings"].items()
+                    if mapped_connector == connector_name
+                ]
+                config["connectors"].append({
                     "name": connector_name,
-                    "agents": list(router_info["agent_mappings"].keys()),
-                }
-                for connector_name in router_info["loaded_connectors"]
-            ]
+                    "agents": connector_agents,
+                })
         except Exception as e:
             logger.error(f"Error getting router info: {e}")
 
