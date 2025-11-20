@@ -257,4 +257,8 @@ docs/.jekyll-metadata
 .Spotlight-V100
 .Trashes
 ehthumbs.db
-Thumbs.db 
+Thumbs.db
+
+# Local scripts
+restart.sh
+log.txt
